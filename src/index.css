@@ -8,3 +8,66 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+
+/*//////////////////// 
+      HEADER 
+///////////////////*/
+
+header {
+  background: #33FF33;
+  color: white;
+  margin-top: -1em;
+}
+
+.header-container {
+  max-width: 85%;
+  margin: 0  auto;
+}
+
+.header-h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  float: left;
+  margin-top: 1em;
+}
+
+.header-h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+.header-h1 a:hover {
+  color: #017F16;
+}
+
+.navigation {
+  list-style: none;
+  float: right;
+}
+
+.navigation li {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 0.8em;
+}
+
+.navigation a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.5em;
+}
+
+.navigation a:hover {
+  color: #017F16;
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
