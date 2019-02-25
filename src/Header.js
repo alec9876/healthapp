@@ -1,15 +1,16 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 
 const Header = props =>
   <header>
     <div className='header-container'>
-        <h1 className="header-h1"><a href="#">HealthWatch</a></h1>
+        <h1 className="header-h1"><NavLink exact to="/">HealthWatch</NavLink></h1>
         <nav>
             <ul className="navigation">
-                <li><a href="#">FoodLog</a></li>
-                <li><a href="#">Exercise</a></li>
-                <li><a href="#">Eateries</a></li>
+                <li><NavLink to="/foodlog">FoodLog</NavLink></li>
+                <li><NavLink to="/exercise">Exercise</NavLink></li>
+                <li><NavLink to="/eateries">Eateries</NavLink></li>
             </ul>
         </nav>
     </div>
