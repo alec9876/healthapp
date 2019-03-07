@@ -9,6 +9,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+ul, li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 
 
 /*//////////////////// 
@@ -70,4 +75,12 @@ header::after {
   clear: both;
 }
 
+
+/*//////////////////// 
+      FOODLOG 
+///////////////////*/
+
+.foodLog-foodInfo{
+  display: block;
+}
 

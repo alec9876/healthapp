@@ -1,0 +1,33 @@
+alt_measures: (8) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+brand_name: null
+consumed_at: "2019-03-01T00:03:26+00:00"
+food_name: "apple"
+full_nutrients: (102) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, …]
+lat: null
+lng: null
+meal_type: 5
+metadata: {is_raw_food: false}
+ndb_no: 9003
+nf_calories: 94.64
+nf_cholesterol: 0
+nf_dietary_fiber: 4.37
+nf_p: 20.02
+nf_potassium: 194.74
+nf_protein: 0.47
+nf_saturated_fat: 0.05
+nf_sodium: 1.82
+nf_sugars: 18.91
+nf_total_carbohydrate: 25.13
+nf_total_fat: 0.31
+nix_brand_id: null
+nix_brand_name: null
+nix_item_id: null
+nix_item_name: null
+photo: {thumb: "https://d2xdmhkmkbyw75.cloudfront.net/384_thumb.jpg", highres: "https://d2xdmhkmkbyw75.cloudfront.net/384_highres.jpg", is_user_uploaded: false}
+serving_qty: 1
+serving_unit: "medium (3" dia)"
+serving_weight_grams: 182
+source: 1
+sub_recipe: null
+tags: {item: "apple", measure: null, quantity: "1", food_group: 3, tag_id: 384}
+upc: null

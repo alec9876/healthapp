@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './Header';
-import Axios from 'axios';
 
 
 // Components
@@ -12,14 +11,11 @@ import FoodLog from './FoodLog.js';
 
 class App extends Component {
   state={
-    nutrition: [],
     exercise: [],
-    calories: [],
-    search: "",
-    foodInfo: null
+    calories: []
   }
 
-  async componentDidMount(){ // async uses await so that it can get the fetch before response is called
+ /* async componentDidMount(){ // async uses await so that it can get the fetch before response is called
     const headers= {
       'Content-type': 'application/json',
       'x-app-id':'c060e6f7',
@@ -31,7 +27,7 @@ class App extends Component {
                       method: 'POST',
                       // withCredentials: true,
                       // credentials: 'include',
-                      body: JSON.stringify({"query":"${this.setState.search}","timezone":"America/New_York","line_delimited":false,"use_raw_foods":false,"use_branded_foods":false}),
+                      body: JSON.stringify({"query":`${this.setState.search}`,"timezone":"America/New_York","line_delimited":false,"use_raw_foods":false,"use_branded_foods":false}),
                       headers: new Headers(headers)
     }); 
     const json = await res.json();
@@ -51,31 +47,23 @@ class App extends Component {
     const res = await fetch(
       `https://trackapi.nutritionix.com/v2/natural/nutrients/${query}/`, 
       { cache: "force-cache" }
-      );
+      )
 
-    const json = await res.json();
+    const json = await res.json()
     this.setState({
         foodInfo: json, 
         search: query
       })
-  }
+  } */
 
-  onSearchChange = event => {
-    this.setState({search: event.target.value});
-  }
+ 
 
   render() {
-    const results = this.generateSearchResults(this.state.search);
     return (
       <BrowserRouter>
         <div>
           <Header />
-          <Route path="/foodlog" render ={() => 
-            <FoodLog 
-              search= {this.state.search}
-              result= {results}
-              />}
-            />
+          <Route path="/foodlog" component={FoodLog}/>
           {/*<Route path="/exercise" component={Exercise}/>
           <Route path="/eateries" component={Eateries}/>  */}
         </div>
