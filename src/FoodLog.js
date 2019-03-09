@@ -10,6 +10,12 @@ class FoodLog extends Component {
         }
     }
 
+    gettingCalories = (cal) => {
+        console.log("gettingCalories");
+        const calories = localStorage.getItem("calorieCount") ? parseInt(localStorage.getItem("calorieCount")) : 0;
+        localStorage.setItem("calorieCount", calories + parseInt(cal)) 
+    }
+
     onSearchChange = event => {
         this.setState({ search: event.target.value });
       }
@@ -68,6 +74,7 @@ class FoodLog extends Component {
             </button>
             <ul>
                 {this.state.nutrition.map((n, i) => (
+                    <div>
                     <li key={i}>    
                      <img src={n.photo.thumb} />
                         <h2>{n.food_name}</h2>
@@ -76,7 +83,12 @@ class FoodLog extends Component {
                         <span>Carbohydrates: {n.nf_total_carbohydrate}</span><br/>
                         <span>Fat: {n.nf_total_fat}</span><br/>
                     </li>
+                    <button onClick={() => this.gettingCalories(n.nf_calories)}>
+                    Add Calories
+                    </button>
+                    </div>
                 ))}
+                
             </ul>
         </div>
         )

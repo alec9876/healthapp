@@ -11,9 +11,13 @@ import FoodLog from './FoodLog.js';
 
 class App extends Component {
   state={
-    exercise: [],
-    calories: []
+    calories: localStorage.getItem("calorieCount") ? parseInt(localStorage.getItem("calorieCount")) : 0
   }
+
+  // All State info goes into Home component
+  //
+
+ 
 
  /* async componentDidMount(){ // async uses await so that it can get the fetch before response is called
     const headers= {
@@ -59,7 +63,9 @@ class App extends Component {
  
 
   render() {
+    console.log(this.state);
     return (
+      <div>
       <BrowserRouter>
         <div>
           <Header />
@@ -68,6 +74,13 @@ class App extends Component {
           <Route path="/eateries" component={Eateries}/>  */}
         </div>
       </BrowserRouter>
+      <div>
+        <h1>Calories Consumed</h1>
+          <FoodLog 
+           />
+        <h1>Calories Expended</h1>
+      </div>
+      </div>
     );
   }
 }
