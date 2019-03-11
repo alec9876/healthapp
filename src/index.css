@@ -77,6 +77,16 @@ header::after {
 
 
 /*//////////////////// 
+      HOME 
+///////////////////*/
+
+.clearButton{
+  background-color: black;
+  color: white;
+}
+
+
+/*//////////////////// 
       FOODLOG 
 ///////////////////*/
 

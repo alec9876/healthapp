@@ -11,9 +11,10 @@ class FoodLog extends Component {
     }
 
     gettingCalories = (cal) => {
-        console.log("gettingCalories");
         const calories = localStorage.getItem("calorieCount") ? parseInt(localStorage.getItem("calorieCount")) : 0;
         localStorage.setItem("calorieCount", calories + parseInt(cal)) 
+        // calories are equal to the present amount of food object, and 'cal' is the running total of all calories logged
+        
     }
 
     onSearchChange = event => {
@@ -61,7 +62,6 @@ class FoodLog extends Component {
           })
       }
     render(){
-    const results = this.generateSearchResults(this.state.search);
     return (
         <div>
             <input
@@ -74,8 +74,8 @@ class FoodLog extends Component {
             </button>
             <ul>
                 {this.state.nutrition.map((n, i) => (
-                    <div>
-                    <li key={i}>    
+                    <div key={i}>
+                    <li>    
                      <img src={n.photo.thumb} />
                         <h2>{n.food_name}</h2>
                         <span>Calories: {n.nf_calories}</span><br/>
