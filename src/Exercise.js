@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
+import {Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
-
+const mapStyles = {
+    height: '70vh',
+    width: '70vh'
+  };
 class Exercise extends Component {
 constructor(){
     super();
@@ -10,6 +14,7 @@ constructor(){
         selectExercise: null
     }
 }
+
 
 gettingExercise = (cal) => {
     localStorage.setItem("calorieBurn", parseInt(cal));
@@ -83,7 +88,7 @@ return (
             ))}
             
         </ul>
-    </div>
+      </div>
     )
 }
 }
