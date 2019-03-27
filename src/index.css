@@ -90,10 +90,68 @@ header::after {
       HOME 
 ///////////////////*/
 
-.clearButton{
-  background-color: black;
+.home-subtitle{
   color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  margin-left: 25%;
 }
+
+.home-h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  font-size: 4em;
+  color: white;
+  text-align: center;
+  margin-bottom: 0em;
+}
+
+.home-info{
+  background-color: rgba(51, 255, 51, 0.4);
+  width: 35%;
+  margin: auto;
+}
+
+.home-date{
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 1em;
+  display: block;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.home-h2{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.home-button{
+  text-align: center;
+}
+
+.button-clear{ 
+    background-color:#44c767;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:16px 31px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .button-clear:hover {
+    background-color:#5cbf2a;
+  }
+
 
 
 /*//////////////////// 
@@ -104,3 +162,105 @@ header::after {
   display: block;
 }
 
+/*//////////////////////////////////////////////////////////////////////////////////////////// 
+                                              TABLET 
+////////////////////////////////////////////////////////////////////////////////////////////*/
+@media only screen and (max-width: 770px){
+/*//////////////////// 
+      HOME 
+///////////////////*/
+.navigation a {
+  font-size: 1.2em;
+  margin-top: 13%;
+}
+
+.home-h1{
+  font-size: 3em;
+  margin-top: 0em;
+}
+
+.home-subtitle{
+  font-size: 1.2em;
+  margin-top:.3em;
+  font-size: 1.2em;
+}
+
+.home-date {
+  font-size: 1.4em;
+  margin-top: .5em;
+}
+
+.button-clear{
+  font-size: 1.2em;
+}
+
+}
+/*//////////////////////////////////////////////////////////////////////////////////////////// 
+                                              MOBILE 
+////////////////////////////////////////////////////////////////////////////////////////////*/
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}

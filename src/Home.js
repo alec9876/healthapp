@@ -18,16 +18,26 @@ class Home extends Component {
      
     
     render() {
-    return (
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.toLocaleString('en-us', {month: 'long'});
+        var year = date.getFullYear();
+        const topPad = {paddingTop: '1em'};
+        const botPad = {paddingBottom: '1em'};
+    return (  
     <div>
-        <h1>Calories Consumed</h1>
-        {this.state.calories}
-        <h1>Calories Expended</h1>
-        {this.state.exercises}
-        <h1>Total Calories</h1>    
-        {this.state.calories - this.state.exercises}
-        <div>
-            <button onClick={() => this.clearCalories()}>
+        <h1 className="home-h1">HealthWatch</h1>
+            <span className="home-subtitle">An app to help you make health-smart choices!</span>
+            <span className="home-date">{month} {day}, {year}</span>
+        <div className="home-info">
+            <h2 className="home-h2" style={topPad}>Calories Consumed: <span>{this.state.calories}</span></h2>
+                
+            <h2 className="home-h2">Calories Expended: <span>{this.state.exercises}</span></h2>
+               
+            <h2 className="home-h2" style={botPad}>Total Calories: <span>{this.state.calories - this.state.exercises}</span></h2>        
+        </div>
+        <div className="home-button">
+            <button className="button-clear" onClick={() => this.clearCalories()}>
                 Clear All Calories
             </button>   
         </div>
