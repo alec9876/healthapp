@@ -17,10 +17,12 @@ class FoodLog extends Component {
         
     }
 
+    // enables typing in Input
     onSearchChange = event => {
         this.setState({ search: event.target.value });
       }
 
+      // API Call
       async getFoods(){ // async uses await so that it can get the fetch before response is called
         const headers= {
           'Content-type': 'application/json',
@@ -40,27 +42,7 @@ class FoodLog extends Component {
         console.log(json)
         this.setState({nutrition: json.foods});
       }
-    
-      generateSearchResults = search => {
-        if(search === ""){
-          return this.state.nutrients;
-        }else {
-          return this.state.nutrients
-        }
-      }
-    
-      selectFood = async (query) => {
-        const res = await fetch(
-          `https://trackapi.nutritionix.com/v2/natural/nutrients/${query}/`, 
-          { cache: "force-cache" }
-          )
-    
-        const json = await res.json()
-        this.setState({
-            foodInfo: json, 
-            search: query
-          })
-      }
+  
     render(){
     return (
         <div>
@@ -70,13 +52,15 @@ class FoodLog extends Component {
                     type="text"
                     value={this.state.search}
                     onChange={this.onSearchChange}
-                /><br className="break"/>
+                /><br className="break"/> {/* break shows on screens smaller that 452px 
+                 button calls API    */}
                 <button className="button-cal-food" onClick={() => this.getFoods()}>
                     Calculate Food
                 </button>
             </div>
             <div className="food-info">
                 <ul>
+                    {/* displays the api call (i.e. food item) */}
                     {this.state.nutrition.map((n, i) => (
                         <div key={i}>
                         <li>    
@@ -85,6 +69,7 @@ class FoodLog extends Component {
                             <span className="food-cal-title">Calories:</span>
                             <span className="food-cal-data">{n.nf_calories}</span><br/>
                         </li>
+                        {/* Calories added to local storage, displays on home page */}
                         <button class="button-add-cal" onClick={() => this.gettingCalories(n.nf_calories)}>
                         Add Calories
                         </button>

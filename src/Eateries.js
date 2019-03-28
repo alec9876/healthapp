@@ -18,6 +18,7 @@ class Eateries extends Component {
     }
   }
 
+  // Shows infoWindow
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
@@ -25,6 +26,7 @@ class Eateries extends Component {
       showingInfoWindow: true
     });
 
+  // Closes infoWindow
   onClose = props => {
     if (this.state.showingInfoWindow) {
       this.setState({
@@ -34,17 +36,8 @@ class Eateries extends Component {
     }
   };
 
-  renderEateries = () => {
-    return (
-      this.state.eateries.map((n, i) => {
-        return (<div key={i}>
-          <li>
-            <span>{n.name}</span><br /> 
-          </li>
-        </div>)
-      }));
-  }
 
+  // Enables Input typing
   onSearchChange = event => {
     this.setState({ search: event.target.value });
   }
@@ -61,7 +54,7 @@ class Eateries extends Component {
     return json.results[0].geometry;
   }
 
-
+  // API Call
   async getEatery() {
     let geocode = await this.getGeocode(this.state.search)
     const headers = {
@@ -78,40 +71,7 @@ class Eateries extends Component {
     this.setState({ eateries: json.locations }, () => this.setMarkers());
   }
  
-
-  //   async getEatery(){ // async uses await so that it can get the fetch before response is called
-  //     const headers= {
-  //       'Content-type': 'application/json',
-  //       'x-app-id':'c060e6f7',
-  //       'x-app-key': '7d88e5623346e2f4992628b5bcfac6c7'
-  //     }
-
-  //     const res = await fetch(`https://trackapi.nutritionix.com/v2/location/${zip}/${headers}/ `)
-  //     const json = await res.json();
-  //     console.log(json)
-  //     this.setState({eateries: json.locations});
-  //   }
-
-  generateSearchResults = search => {
-    if (search === "") {
-      return this.state.eateries;
-    } else {
-      return this.state.eateries
-    }
-  }
-
-  selectEatery = async (zip) => {
-    const res = await fetch(
-      `https://trackapi.nutritionix.com/v2/locations/${zip}/`,
-      { cache: "force-cache" }
-    )
-
-    const json = await res.json()
-    this.setState({
-      eateryInfo: json,
-      search: zip
-    })
-  }
+ 
   render() {
     const center = {lat: 38.2289, lng: -85.6654}
     const markerCenter = this.state.markers.length > 0 ? {lat: this.state.markers[0].lat, lng: this.state.markers[0].lng} : center 
@@ -123,12 +83,14 @@ class Eateries extends Component {
               type="text"
               value={this.state.search}
               onChange={this.onSearchChange}
-            /><br className="break" />
+            /><br className="break" />{/* Displays on screens smaller than 452 px
+               Button activates search for restaurants in map */}
             <button className="button-map-search" onClick={() => this.getEatery()}>
               Search
             </button>
         </div>
       <div>
+      {/* Begin Google Maps Component */}
         <Map
           google={this.props.google}
           zoom={12}
@@ -137,6 +99,7 @@ class Eateries extends Component {
           center={markerCenter}
           containerStyle={{height: '0', width: '0', marginTop: '0.3em'}}
         >
+          {/* Displays initial center marker, and then other markers after query */}
           {this.state.markers && this.state.markers.map(m => (
             <Marker
               key={m.name}

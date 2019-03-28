@@ -9,15 +9,15 @@ constructor(){
     }
 }
 
-
+// stores calories into local storage, appears on Home page
 gettingExercise = (cal) => {
     localStorage.setItem("calorieBurn", parseInt(cal));
 }
-
+// enables Input typing
 onSearchChange = event => {
     this.setState({ search: event.target.value });
   }
-
+  // API Call
   async getExercise(){ // async uses await so that it can get the fetch before response is called
     const headers= {
       'Content-type': 'application/json',
@@ -38,26 +38,6 @@ onSearchChange = event => {
     this.setState({exercise: json.exercises});
   }
 
-  generateSearchResults = search => {
-    if(search === ""){
-      return this.state.exercise;
-    }else {
-      return this.state.exercise
-    }
-  }
-
-  selectExercise = async (query) => {
-    const res = await fetch(
-      `https://trackapi.nutritionix.com/v2/exercise/log/${query}/`, 
-      { cache: "force-cache" }
-      )
-
-    const json = await res.json()
-    this.setState({
-        exerciseInfo: json, 
-        search: query
-      })
-  }
 render(){
 return (
     <div>
@@ -67,19 +47,22 @@ return (
                 type="text"
                 value={this.state.search}
                 onChange={this.onSearchChange}
-            /><br className="break" />
+            /><br className="break" /> {/* Break displays at 452px screen size and smaller
+                Button displays the amount of calories burned */}
             <button className="button-cal-exercise" onClick={() => this.getExercise()}>
                 Calculate Exercise
             </button>
         </div>
         <div className="exercise-info">
             <ul>
+                {/* Displays calories burned */}
                 {this.state.exercise.map((n, i) => (
                     <div key={i}>
                     <li>    
                         <span className="exercise-cal-title">Calories:</span>
                         <span className="exercise-cal-data">{n.nf_calories}</span><br/>
                     </li>
+                    {/* Adds calories to local storage, appears on Home page */}
                     <button className="button-add-cal" onClick={() => this.gettingExercise(n.nf_calories)}>
                     Add Calories Burned
                     </button>

@@ -4,9 +4,10 @@ class Home extends Component {
     state={
         calories: localStorage.getItem("calorieCount") ? parseInt(localStorage.getItem("calorieCount")) : 0,
         exercises: localStorage.getItem("calorieBurn") ? parseInt(localStorage.getItem("calorieBurn")) : 0
+        // stores both FoodLog component calories and Exercise component calories on Home page
       }
 
-
+      // clear calories from Calories Consumed, Calories Expended, and Total Calories
       clearCalories = () => {
         this.setState({
             calories: localStorage.clear() ? 0 : 0,
@@ -18,6 +19,7 @@ class Home extends Component {
      
     
     render() {
+        // Today's date
         var date = new Date();
         var day = date.getDate();
         var month = date.toLocaleString('en-us', {month: 'long'});
