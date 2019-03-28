@@ -25,7 +25,7 @@ class Home extends Component {
         const topPad = {paddingTop: '1em'};
         const botPad = {paddingBottom: '1em'};
     return (  
-    <div>
+    <div className="home-container">
         <h1 className="home-h1">HealthWatch</h1>
             <span className="home-subtitle">An app to help you make health-smart choices!</span>
             <span className="home-date">{month} {day}, {year}</span>

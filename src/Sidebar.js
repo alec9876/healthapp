@@ -1,20 +1,25 @@
-import { slide as Menu } from 'react-burger-menu'
+import React from "react";
+import { slide as Menu } from "react-burger-menu";
 
+export default props => {
+  return (
+    // Pass on our props
+    <Menu {...props}>
+      <a className="menu-item" href="/">
+        Home
+      </a>
 
+      <a className="menu-item" href="./FoodLog">
+        FoodLog
+      </a>
 
-class Sidebar extends React.Component {
-  showSettings (event) {
-    event.preventDefault();
-  }
- 
-  render () {
-    return (
-      <Menu>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-      </Menu>
-    );
-  }
-}
+      <a className="menu-item" href="./Exercise">
+        Exercises
+      </a>
+
+      <a className="menu-item" href="./Eateries">
+        Eateries
+      </a>
+    </Menu>
+  );
+};

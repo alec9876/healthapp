@@ -64,32 +64,35 @@ class FoodLog extends Component {
     render(){
     return (
         <div>
-            <input
-                type="text"
-                value={this.state.search}
-                onChange={this.onSearchChange}
-            />
-            <button onClick={() => this.getFoods()}>
-                Calculate Food
-            </button>
-            <ul>
-                {this.state.nutrition.map((n, i) => (
-                    <div key={i}>
-                    <li>    
-                     <img src={n.photo.thumb} />
-                        <h2>{n.food_name}</h2>
-                        <span>Calories: {n.nf_calories}</span><br/>
-                        <span>Protein: {n.nf_protein}</span><br/>
-                        <span>Carbohydrates: {n.nf_total_carbohydrate}</span><br/>
-                        <span>Fat: {n.nf_total_fat}</span><br/>
-                    </li>
-                    <button onClick={() => this.gettingCalories(n.nf_calories)}>
-                    Add Calories
-                    </button>
-                    </div>
-                ))}
-                
-            </ul>
+            <div className="div-food-cal">
+                <input className="food-input" 
+                    placeholder="'1 apple' or '3 eggs' or 'bowl of oatmeal'... "
+                    type="text"
+                    value={this.state.search}
+                    onChange={this.onSearchChange}
+                /><br className="break"/>
+                <button className="button-cal-food" onClick={() => this.getFoods()}>
+                    Calculate Food
+                </button>
+            </div>
+            <div className="food-info">
+                <ul>
+                    {this.state.nutrition.map((n, i) => (
+                        <div key={i}>
+                        <li>    
+                        <img src={n.photo.thumb} />
+                            <h2 className="food-name">{n.food_name}</h2>
+                            <span className="food-cal-title">Calories:</span>
+                            <span className="food-cal-data">{n.nf_calories}</span><br/>
+                        </li>
+                        <button class="button-add-cal" onClick={() => this.gettingCalories(n.nf_calories)}>
+                        Add Calories
+                        </button>
+                        </div>
+                    ))}
+                    
+                </ul>
+            </div>
         </div>
         )
     }

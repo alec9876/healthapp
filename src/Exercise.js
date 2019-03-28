@@ -61,27 +61,33 @@ onSearchChange = event => {
 render(){
 return (
     <div>
-        <input
-            type="text"
-            value={this.state.search}
-            onChange={this.onSearchChange}
-        />
-        <button onClick={() => this.getExercise()}>
-            Calculate Exercise
-        </button>
-        <ul>
-            {this.state.exercise.map((n, i) => (
-                <div key={i}>
-                <li>    
-                    <span>Calories: {n.nf_calories}</span><br/>
-                </li>
-                <button onClick={() => this.gettingExercise(n.nf_calories)}>
-                Add Calories Burned
-                </button>
-                </div>
-            ))}
-            
-        </ul>
+        <div className="div-exercise-cal">
+            <input className="exercise-input"
+                placeholder="'Ran 1 mile' or 'Jogged 30 minutes'..."
+                type="text"
+                value={this.state.search}
+                onChange={this.onSearchChange}
+            /><br className="break" />
+            <button className="button-cal-exercise" onClick={() => this.getExercise()}>
+                Calculate Exercise
+            </button>
+        </div>
+        <div className="exercise-info">
+            <ul>
+                {this.state.exercise.map((n, i) => (
+                    <div key={i}>
+                    <li>    
+                        <span className="exercise-cal-title">Calories:</span>
+                        <span className="exercise-cal-data">{n.nf_calories}</span><br/>
+                    </li>
+                    <button className="button-add-cal" onClick={() => this.gettingExercise(n.nf_calories)}>
+                    Add Calories Burned
+                    </button>
+                    </div>
+                ))}
+                
+            </ul>
+        </div>
       </div>
     )
 }

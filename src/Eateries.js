@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 const mapStyles = {
-  height: '70vh',
-  width: '70vh'
+  height: '60vh',
+  width: '100vh'
 };
 class Eateries extends Component {
   constructor() {
@@ -117,22 +117,25 @@ class Eateries extends Component {
     const markerCenter = this.state.markers.length > 0 ? {lat: this.state.markers[0].lat, lng: this.state.markers[0].lng} : center 
     return (
       <div>
-        <input
-          type="text"
-          value={this.state.search}
-          onChange={this.onSearchChange}
-        />
-        <button onClick={() => this.getEatery()}>
-          Search
+        <div className="div-map">
+            <input className="eateries-input"
+              placeholder="Your Zip Code"
+              type="text"
+              value={this.state.search}
+              onChange={this.onSearchChange}
+            />
+            <button className="button-map-search" onClick={() => this.getEatery()}>
+              Search
             </button>
-        <ul>{this.renderEateries()}</ul>
-
+        </div>
+      <div id="mapBox">
         <Map
           google={this.props.google}
-          zoom={14}
+          zoom={12}
           style={mapStyles}
           initialCenter={center}
           center={markerCenter}
+          containerStyle={{height: '0'}}
         >
           {this.state.markers && this.state.markers.map(m => (
             <Marker
@@ -159,6 +162,7 @@ class Eateries extends Component {
             </div>
           </InfoWindow>
         </Map>
+        </div>
       </div>
     )
   }
