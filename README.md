@@ -1,3 +1,10 @@
+This is my Code Project for Code Louisville's JavaScript/React course.  The main aim of this project was
+to design an app that would be helpful and beneficial to those who wanted to be health-conscience.
+It takes an API from www.nutritionix.com, and calculates different types of foods and exercises into calories either consumed or expended.  I took each of these calories (consumed or expended) and found the difference between the two, showing the user how many calories they have consumed, expended, and how many total calories they have had for the day.  I have also implemented an API component from Nutritionix that works in tandem with Google Maps to display to the user the restraunts closest to them.
+
+
+___________________________________________________________________________________________________
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
