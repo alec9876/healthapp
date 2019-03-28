@@ -3,7 +3,7 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 const mapStyles = {
   height: '60vh',
-  width: '100vh'
+  width: '100vw'
 };
 class Eateries extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class Eateries extends Component {
       search: "",
       showingInfoWindow: false, //Hides or shows infoWindow
       activeMarker: {},         //Shows the active marker upon click
-      selectedPlace: {},         //Shows the infoWindow to the selected place upon a marker
+      selectedPlace: {}         //Shows the infoWindow to the selected place upon a marker
     }
   }
 
@@ -70,7 +70,7 @@ class Eateries extends Component {
       'x-app-key': '7d88e5623346e2f4992628b5bcfac6c7'
     }
     console.log(geocode)
-    const res = await fetch(`https://trackapi.nutritionix.com/v2/locations?north_east=${geocode.viewport.northeast.lat},${geocode.viewport.northeast.lng}&south_west=${geocode.viewport.southwest.lat},${geocode.viewport.southwest.lng}&limit=2`, {
+    const res = await fetch(`https://trackapi.nutritionix.com/v2/locations?north_east=${geocode.viewport.northeast.lat},${geocode.viewport.northeast.lng}&south_west=${geocode.viewport.southwest.lat},${geocode.viewport.southwest.lng}&limit=5`, {
       method: 'GET',
       headers: new Headers(headers)
     })
@@ -119,23 +119,23 @@ class Eateries extends Component {
       <div>
         <div className="div-map">
             <input className="eateries-input"
-              placeholder="Your Zip Code"
+              placeholder="Enter 5-digit Zip Code"
               type="text"
               value={this.state.search}
               onChange={this.onSearchChange}
-            />
+            /><br className="break" />
             <button className="button-map-search" onClick={() => this.getEatery()}>
               Search
             </button>
         </div>
-      <div id="mapBox">
+      <div>
         <Map
           google={this.props.google}
           zoom={12}
           style={mapStyles}
           initialCenter={center}
           center={markerCenter}
-          containerStyle={{height: '0'}}
+          containerStyle={{height: '0', width: '0', marginTop: '0.3em'}}
         >
           {this.state.markers && this.state.markers.map(m => (
             <Marker

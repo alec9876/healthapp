@@ -181,6 +181,7 @@ header::after {
   color: white;
   text-align: center;
   margin-bottom: 0em;
+  margin-top: .2em;
 }
 
 .home-info{
@@ -195,7 +196,7 @@ header::after {
   margin-top: 1em;
   display: block;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -388,10 +389,9 @@ header::after {
       EATERIES 
 ///////////////////*/
 
-#mapBox div:first-child{
-  height: 0%;
+.break{
+  display: none;
 }
-
 .div-map{
   text-align: center;
 }
@@ -531,6 +531,18 @@ header::after {
 
 .exercise-info ul {
   padding-left: 0;
+}
+
+/*//////////////////// 
+      EATERIES 
+///////////////////*/
+
+.eateries-input{
+  font-size: 1em;
+}
+
+.button-map-search{
+  font-size: .8em;
 }
 
 }
