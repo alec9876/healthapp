@@ -39,7 +39,6 @@ class FoodLog extends Component {
                           headers: new Headers(headers)
         }); 
         const json = await res.json();
-        console.log(json)
         this.setState({nutrition: json.foods});
       }
   
@@ -61,7 +60,7 @@ class FoodLog extends Component {
             <div className="food-info">
                 <ul>
                     {/* displays the api call (i.e. food item) */}
-                    {this.state.nutrition.map((n, i) => (
+                    {this.state.nutrition && this.state.nutrition.map((n, i) => (
                         <div key={i}>
                         <li>    
                         <img src={n.photo.thumb} />

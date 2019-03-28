@@ -56,7 +56,7 @@ return (
         <div className="exercise-info">
             <ul>
                 {/* Displays calories burned */}
-                {this.state.exercise.map((n, i) => (
+                {this.state.exercise && this.state.exercise.map((n, i) => (
                     <div key={i}>
                     <li>    
                         <span className="exercise-cal-title">Calories:</span>
